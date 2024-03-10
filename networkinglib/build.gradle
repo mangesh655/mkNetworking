@@ -24,6 +24,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            consumerProguardFiles 'proguard-rules.pro'
+            consumerProguardFiles 'consumer-rules.pro'
         }
     }
     compileOptions {
@@ -55,16 +57,19 @@ dependencies {
 
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'org.github.mangeshkokare'
-                artifactId = 'networkinglib'
-                version = '1.0.6'
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.mangesh655'
+            artifactId = 'networking-lib'
+            version = "1.0.6"
+            pom {
+                description = 'This is Networking Library built on top of Retrofit and Okhttp'
             }
         }
+    }
+    repositories {
+        mavenLocal()
     }
 }
 
