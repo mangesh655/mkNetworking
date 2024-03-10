@@ -62,7 +62,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'org.github.mangeshkokare'
                 artifactId = 'networkinglib'
-                version = '1.0.0'
+                version = '1.0.6'
             }
         }
     }
