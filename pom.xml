@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.mangesh655</groupId>
   <artifactId>networking-lib</artifactId>
-  <version>1.0.10</version>
+  <version>1.0.11</version>
   <packaging>pom</packaging>
   <description>This is Networking Library built on top of Retrofit and Okhttp</description>
 </project>
