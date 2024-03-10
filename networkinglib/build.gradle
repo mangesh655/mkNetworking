@@ -62,7 +62,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.github.mangesh655'
             artifactId = 'networking-lib'
-            version = "1.0.6"
+            version = "1.0.7"
             pom {
                 description = 'This is Networking Library built on top of Retrofit and Okhttp'
             }
