@@ -57,19 +57,19 @@ dependencies {
 
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.github.mangesh655'
-            artifactId = 'networking-lib'
-            version = "1.0.8"
-            pom {
-                description = 'This is Networking Library built on top of Retrofit and Okhttp'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.mangesh655'
+                artifactId = 'networking-lib'
+                version = "1.0.9"
+                pom {
+                    description = 'This is Networking Library built on top of Retrofit and Okhttp'
+                }
             }
         }
-    }
-    repositories {
-        mavenLocal()
     }
 }
 
