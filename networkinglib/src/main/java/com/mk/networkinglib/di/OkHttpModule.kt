@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -22,7 +23,7 @@ internal object NetworkDataModule {
     fun provideRetrofit(
         converterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient,
-        baseUrl: String
+        @Named("base_url") baseUrl: String
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
