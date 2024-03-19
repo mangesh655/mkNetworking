@@ -14,18 +14,29 @@ android {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        consumerProguardFiles 'proguard-rules.pro'
+        consumerProguardFiles 'consumer-rules.pro'
+        consumerProguardFiles 'retrofit2.pro'
+        consumerProguardFiles 'okhttp3.pro'
+        consumerProguardFiles 'coroutines.pro'
+
     }
 
     buildTypes {
         release {
             minifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro",
+                    "retrofit2.pro",
+                    "okhttp3.pro",
+                    "coroutines.pro"
             )
             consumerProguardFiles 'proguard-rules.pro'
             consumerProguardFiles 'consumer-rules.pro'
+            consumerProguardFiles 'retrofit2.pro'
+            consumerProguardFiles 'okhttp3.pro'
+            consumerProguardFiles 'coroutines.pro'
         }
     }
     compileOptions {
@@ -64,7 +75,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.mangesh655'
                 artifactId = 'networking-lib'
-                version = "1.0.14"
+                version = "1.0.15"
                 pom {
                     description = 'This is Networking Library built on top of Retrofit and Okhttp'
                 }
