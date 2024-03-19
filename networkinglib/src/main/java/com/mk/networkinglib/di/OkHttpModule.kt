@@ -1,5 +1,6 @@
 package com.mk.networkinglib.di
 
+import com.google.gson.Gson
 import com.mk.networkinglib.NetworkingClient.NetworkApiService
 import com.mk.networkinglib.ktx.createService
 import dagger.Module
@@ -9,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -18,7 +20,7 @@ internal object NetworkDataModule {
     @Provides
     @Singleton
     fun provideRetrofit(
-        converterFactory: Converter.Factory,
+        converterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient,
         baseUrl: String
     ): Retrofit {
@@ -34,4 +36,9 @@ internal object NetworkDataModule {
     fun provideNetworkApiService(
         retrofit: Retrofit
     ): NetworkApiService = retrofit.createService()
+
+    @Provides
+    @Singleton
+    fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
+        GsonConverterFactory.create(gson)
 }
