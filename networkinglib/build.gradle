@@ -61,10 +61,11 @@ dependencies {
     kapt libs.hilt.android.compiler
 
 
-    implementation libs.retrofit
+    implementation libs.bundles.retrofit
     implementation libs.gson
     implementation libs.converter.gson
     implementation libs.logging.interceptor
+    implementation libs.kotlin.serialization.json
 
 }
 
@@ -75,7 +76,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.mangesh655'
                 artifactId = 'networking-lib'
-                version = "1.0.15"
+                version = "1.0.16"
                 pom {
                     description = 'This is Networking Library built on top of Retrofit and Okhttp'
                 }

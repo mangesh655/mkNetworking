@@ -34,12 +34,6 @@ internal object RetrofitClientModule {
         }
     }
 
-    /*@Provides
-    @Singleton
-    fun provideApikeyInterceptor(): ApikeyInterceptor {
-        return ApikeyInterceptor(BuildConfig.TMDB_API_KEY)
-    }*/
-
     @Provides
     @Singleton
     fun provideOkHttp(

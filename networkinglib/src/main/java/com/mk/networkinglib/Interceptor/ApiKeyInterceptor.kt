@@ -3,7 +3,7 @@ package com.mk.networkinglib.Interceptor
 import okhttp3.Interceptor
 import okhttp3.Response
 
-internal class ApikeyInterceptor(
+class ApikeyInterceptor(
     private val apiKey: String
 ): Interceptor {
 
