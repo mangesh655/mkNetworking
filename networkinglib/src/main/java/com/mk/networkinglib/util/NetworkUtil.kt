@@ -7,13 +7,14 @@ import java.io.InputStreamReader
 import javax.inject.Singleton
 import com.mk.networkinglib.error.GenericErrorParam
 import com.mk.networkinglib.util.Result
+import javax.inject.Inject
 
 /**
  * Wrap a suspending API [call] in try/catch. In case an exception is thrown, a [Result.Error] is
  * created based on the [errorMessage].
  */
 @Singleton
-class NetworkUtil {
+class NetworkUtil @Inject constructor() {
     suspend fun <T : Any?> safeApiCall(
         call: suspend () -> Result<T?>,
         errorMessage: String

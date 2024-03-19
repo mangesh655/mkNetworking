@@ -41,4 +41,8 @@ internal object NetworkDataModule {
     @Singleton
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
         GsonConverterFactory.create(gson)
+
+    @Provides
+    @Singleton
+    fun provideGson(): Gson = Gson()
 }
