@@ -1,6 +1,8 @@
 package com.mk.networkinglib.NetworkingClient
 
-class NetworkSetup : INetworkSetup {
+import javax.inject.Inject
+
+class NetworkSetup @Inject constructor() : INetworkSetup {
 
     private lateinit var baseUrl : String
     private lateinit var apiKey : String
