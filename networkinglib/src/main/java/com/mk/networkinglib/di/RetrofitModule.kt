@@ -2,6 +2,7 @@ package com.mk.networkinglib.di
 
 import android.content.Context
 import com.mk.networkinglib.Interceptor.ApikeyInterceptor
+import com.mk.networkinglib.NetworkingClient.INetworkSetup
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,12 +39,12 @@ internal object RetrofitClientModule {
     @Singleton
     fun provideOkHttp(
         httpLoggingInterceptor: HttpLoggingInterceptor,
-        apikeyInterceptor: ApikeyInterceptor,
-        cache: Cache
+        cache: Cache,
+        networkSetup : INetworkSetup
     ): OkHttpClient {
         val builder = OkHttpClient.Builder().apply {
             addInterceptor(httpLoggingInterceptor)
-            addInterceptor(apikeyInterceptor)
+            addInterceptor(ApikeyInterceptor(networkSetup.getApiKey()))
             callTimeout(CALL_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
             connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
             readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
