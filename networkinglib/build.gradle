@@ -75,8 +75,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.mangesh655'
-                artifactId = 'networking-lib'
-                version = "1.0.26"
+                artifactId = 'mkNetworking'
+                version = "1.0.0"
                 pom {
                     description = 'This is Networking Library built on top of Retrofit and Okhttp'
                 }
